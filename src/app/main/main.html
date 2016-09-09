@@ -22,15 +22,15 @@
       </md-list>
     </md-content>
 
-    <p id="demo"></p>
+    <p id="posicao"></p>
     <script>
-      var x = document.getElementById("demo");
+      var x = document.getElementById("posicao");
 
       function getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-          error('Geo Location is not supported');
+          error('Não suportado');
         }
       }
 

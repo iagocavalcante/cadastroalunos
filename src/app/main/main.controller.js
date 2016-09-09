@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function MainController() {
-    var vm = this;    
+    var vm = this;
 
     vm.filtro = '';
 
@@ -24,11 +24,6 @@
 
     vm.removeAluno = function() {
 
-    };
-
-    vm.uploadFile = function() {
-      console.log('laksjd');
-      // var file = this.files[0];console.log(file.name);
     };
 
   }
