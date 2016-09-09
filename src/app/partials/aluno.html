@@ -1,0 +1,96 @@
+<div>
+
+  <md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <span>Aluno: {{aluno.nome}}</span>
+    </div>
+  </md-toolbar>
+
+  <form ng-controller="AlunoController as ac" ng-submit="ac.salvar(aluno)">
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_1">Nome</label>
+        <input style="" aria-invalid="false" id="input_1" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.nome" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_2">Sobrenome</label>
+        <input style="" aria-invalid="false" id="input_2" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.sobrenome" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+    </div>
+
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_3">RG</label>
+        <input style="" aria-invalid="false" id="input_3" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.rg" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_4">CPF</label>
+        <input style="" aria-invalid="false" id="input_4" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.cpf" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+    </div>
+
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_5">Endereço</label>
+        <input style="" aria-invalid="false" id="input_5" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.endereco" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_6">Número</label>
+        <input style="" aria-invalid="false" id="input_6" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.numero" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+    </div>
+
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm md-input-has-value" flex-gt-sm="">
+        <label for="input_7">Cidade</label>
+        <input style="" aria-invalid="false" id="input_7" class="ng-pristine ng-valid md-input ng-not-empty ng-touched" ng-model="aluno.cidade" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+
+      <md-input-container class="md-block flex-gt-sm md-input-has-value" flex-gt-sm="">
+        <label for="input_8">Estado</label>
+        <input style="" aria-invalid="false" id="input_8" class="ng-pristine ng-valid md-input ng-not-empty ng-touched" ng-model="aluno.estado" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+
+      <md-input-container class="md-block md-input-has-placeholder flex-gt-sm md-input-has-value" flex-gt-sm="">
+        <label for="input_9" class="md-required">CEP</label>
+        <input ng-trim="false" style="" aria-invalid="false" id="input_9" class="ng-pristine ng-untouched ng-valid md-input ng-not-empty ng-valid-required ng-valid-pattern" name="postalCode" ng-model="aluno.cep" placeholder="66000-000" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+    </div>
+
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label for="input_10">Contato</label>
+        <input aria-invalid="false" id="input_10" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.contato" ><div class="md-errors-spacer"></div>
+      </md-input-container>
+    </div>
+
+    <div>
+      <input id="inp" type='file'>
+      <input hidden="" id="input_11" ng-model="aluno.image" value="" />
+      <img id="img" style="width: 100px; height: 100px">
+      <script>
+        function elemento(id) { return document.getElementById(id); } // Get el by ID helper function
+
+        function readFile() {
+          if (this.files && this.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.onload = function(e) {
+              elemento("img").src = e.target.result;
+              elemento("input_11").value = e.target.result;
+            };
+            fileReader.readAsDataURL(this.files[0]);
+          }
+        }
+        elemento("inp").addEventListener("change", readFile, false);
+      </script>
+    </div>
+
+    <button class="md-raised md-primary md-button md-ink-ripple" type="submit">Salvar</button>
+    <md-button class="md-raised" ng-href="/#/">Voltar</md-button>
+
+  </form>
+
+</div>
