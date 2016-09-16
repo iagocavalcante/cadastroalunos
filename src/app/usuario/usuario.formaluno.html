@@ -4,6 +4,7 @@
     <div class="md-toolbar-tools">
       <span>Usuario: {{usuario.nome}}</span>
     </div>
+    <button class="md-raised md-primary md-button md-ink-ripple" type="button" ng-click="usuario.logOut()">LogOut</button>
   </md-toolbar>
 
   <form ng-controller="UsuarioController as uc" ng-submit="uc.salvar(aluno)">
@@ -89,7 +90,7 @@
     </div>
 
     <button class="md-raised md-primary md-button md-ink-ripple" type="submit">Salvar</button>
-    <md-button class="md-raised" ng-href="/#/">Voltar</md-button>
+    <md-button class="md-raised" ng-href="/#/usuario">Voltar</md-button>
 
   </form>
 

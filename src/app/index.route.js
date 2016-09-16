@@ -10,22 +10,27 @@
       .when('/usuario', {
         templateUrl: 'app/usuario/usuario.html',
         controller: 'UsuarioController',
+        controllerAs: 'usuario'
       })
-      .when('/usuario/cadastraraluno', {
+      .when('/usuario/formaluno', {
         templateUrl: 'app/usuario/usuario.formaluno.html',
         controller: 'UsuarioController',
+        controllerAs: 'usuario'
       })
       .when('/usuario/:alunoId', {
         templateUrl: 'app/usuario/usuario.formaluno.html',
         controller: 'UsuarioController',
+        controllerAs: 'usuario'
       })
       .when('/aluno', {
         templateUrl: 'app/aluno/aluno.html',
         controller: 'AlunoController',
+        controllerAs: 'aluno'
       })
       .when('/aluno/:alunoId', {
         templateUrl: 'app/aluno/aluno.html',
         controller: 'AlunoController',
+        controllerAs: 'aluno'
       })
       .when('/', {
         templateUrl: 'app/main/main.html',

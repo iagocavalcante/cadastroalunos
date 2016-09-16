@@ -9,7 +9,7 @@
   function AlunoController($scope, $routeParams, $location) {
     var vm = this;
     vm.aluno = [];
-    vm.alunos = JSON.fromJSON(localStorage.getItem('tbalunos'));
+    vm.alunos = JSON.parse(localStorage.getItem('tbalunos'));
 
     if($routeParams.alunoId){
       for (var i = 0; i < vm.alunos.length; i++) {
@@ -19,6 +19,7 @@
           break;
         }
       }
+      document.getElementById('img').src = $scope.aluno.image;      
     }
 
     vm.salvar = function(aluno) {
@@ -35,17 +36,21 @@
             }
           }
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
-          $location.path('/#/');
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
+          $location.path('/aluno');
         } else {
           aluno.matricula = 1+vm.alunos.length + '';
           vm.alunos.push(aluno);
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
-          $location.path('/#/');
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
+          $location.path('/aluno');
         }
       }
     };
+
+    vm.logOut = function() {
+      console.log("LogOut");
+    }
 
   }
 

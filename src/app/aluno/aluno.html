@@ -4,6 +4,7 @@
     <div class="md-toolbar-tools">
       <span>Aluno: {{aluno.nome}}</span>
     </div>
+    <button class="md-raised md-primary md-button md-ink-ripple" type="button" ng-click="aluno.logOut()">LogOut</button>
   </md-toolbar>
 
   <form ng-controller="AlunoController as ac" ng-submit="ac.salvar(aluno)">
@@ -68,28 +69,8 @@
     </div>
 
     <div>
-      <input id="inp" type='file'>
-      <input hidden="" id="input_11" ng-model="aluno.image" value="" />
-      <img id="img" style="width: 100px; height: 100px">
-      <script>
-        function elemento(id) { return document.getElementById(id); } // Get el by ID helper function
-
-        function readFile() {
-          if (this.files && this.files[0]) {
-            var fileReader = new FileReader();
-            fileReader.onload = function(e) {
-              elemento("img").src = e.target.result;
-              elemento("input_11").value = e.target.result;
-            };
-            fileReader.readAsDataURL(this.files[0]);
-          }
-        }
-        elemento("inp").addEventListener("change", readFile, false);
-      </script>
+      <img id="img" style="width: 100px; height: 100px">      
     </div>
-
-    <button class="md-raised md-primary md-button md-ink-ripple" type="submit">Salvar</button>
-    <md-button class="md-raised" ng-href="/#/">Voltar</md-button>
 
   </form>
 

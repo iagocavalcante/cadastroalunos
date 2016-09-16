@@ -15,7 +15,7 @@
 
     vm.filtro = '';
     vm.aluno = [];
-    vm.alunos = JSON.fromJSON(localStorage.getItem('tbalunos'));
+    vm.alunos = JSON.parse(localStorage.getItem('tbalunos'));
 
     vm.removeAluno = function() {
 
@@ -45,14 +45,15 @@
             }
           }
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
-          $location.path('/#/');
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
+          console.log('ok');
+          $location.path('/usuario');
         } else {
           aluno.matricula = 1+vm.alunos.length + '';
           vm.alunos.push(aluno);
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
-          $location.path('/#/');
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
+          $location.path('/usuario');
         }
       }
     };
