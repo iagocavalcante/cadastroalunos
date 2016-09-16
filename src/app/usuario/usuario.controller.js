@@ -3,13 +3,23 @@
 
   angular
     .module('sistemaAluno')
-    .controller('AlunoController', AlunoController);
+    .controller('UsuarioController', UsuarioController);
 
   /** @ngInject */
-  function AlunoController($scope, $routeParams, $location) {
+  function UsuarioController($routeParams, $scope, $location) {
     var vm = this;
+
+    if (!localStorage.getItem('tbalunos')) {
+      localStorage.setItem('tbalunos', '[]')
+    }
+
+    vm.filtro = '';
     vm.aluno = [];
     vm.alunos = JSON.fromJSON(localStorage.getItem('tbalunos'));
+
+    vm.removeAluno = function() {
+
+    };
 
     if($routeParams.alunoId){
       for (var i = 0; i < vm.alunos.length; i++) {

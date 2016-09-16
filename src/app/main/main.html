@@ -1,82 +1,33 @@
-<div>
-
-  <md-toolbar layout="row" class="md-hue-3">
-    <div class="md-toolbar-tools">
-      <span>Alunos</span>
-    </div>
-  </md-toolbar>
-
-  <md-content>
-    <md-content>
-      <md-button class="md-raised md-primary" ng-href="/#/aluno">Novo</md-button>
-      <md-input ng-model="filtro" type="search" placeholder="Nome">
-      </md-content>
-      <md-list flex>
-        <md-list-item class="md-3-line" ng-repeat="aluno in main.alunos | filter: filtro" ng-href="/#/aluno/{{aluno.matricula}}">
-          <img ng-src="{{aluno.image}}" class="md-avatar" alt="" />
-          <div class="md-list-item-text" layout="column">
-            <h3>{{ aluno.nome }}</h3>
-            <p>{{ aluno.matricula }}</p>
-          </div>
-        </md-list-item>
-      </md-list>
-    </md-content>
-
-    <p id="posicao"></p>
-    <script>
-      var x = document.getElementById("posicao");
-
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-          error('Não suportado');
-        }
-      }
-
-      function showPosition(position) {
-        x.innerHTML="Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-      }
-      getLocation();
-    </script>
-
-    <br><br>
-
-    <video autoplay></video>
-    <button>Take snapshot</button>
-    <canvas></canvas>
-
-    <script type="text/javascript">
-      var video = document.querySelector('video');
-      var canvas = window.canvas = document.querySelector('canvas');
-      canvas.width = 480;
-      canvas.height = 360;
-
-      var button = document.querySelector('button');
-      button.onclick = function() {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        canvas.getContext('2d').
-          drawImage(video, 0, 0, canvas.width, canvas.height);
-      };
-
-      var constraints = {
-        audio: false,
-        video: true
-      };
-
-      function handleSuccess(stream) {
-        window.stream = stream; // make stream available to browser console
-        video.srcObject = stream;
-      }
-
-      function handleError(error) {
-        console.log('navigator.getUserMedia error: ', error);
-      }
-
-      navigator.mediaDevices.getUserMedia(constraints).
-      then(handleSuccess).catch(handleError);
-    </script>
-
+<md-toolbar layout="row" class="md-hue-3">
+  <div class="md-toolbar-tools">
+    <span>Sistema de Cadastro</span>
   </div>
+</md-toolbar>
+<br>
+
+<form ng-controller="MainController as mc" ng-submit="mc.login(username, password)" class="">
+
+  <div layout="column" layout-align="center center" layout-fill="layout-fill">
+    <div layout="column" class="loginBox md-whiteframe-z1">
+      <md-toolbar>
+        <h2 class="md-toolbar-tools"><span>Login</span></h2>
+      </md-toolbar>
+      <md-content layout="column" class="md-padding">
+        <md-input-container>
+          <label>EmailAddress</label>
+          <input type="email" ng-model="username"/>
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" ng-model="password"/>
+        </md-input-container>
+        <div layout="row" layout-align="center center" style="padding-top:20px;">
+          <md-button class="md-raised md-primary" type="submit">Login</md-button>
+          <div flex="flex"></div>
+          <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
+        </div>
+      </md-content>
+    </div>
+  </div>
+
+</form>

@@ -7,12 +7,24 @@
 
   function routeConfig($routeProvider) {
     $routeProvider
+      .when('/usuario', {
+        templateUrl: 'app/usuario/usuario.html',
+        controller: 'UsuarioController',
+      })
+      .when('/usuario/cadastraraluno', {
+        templateUrl: 'app/usuario/usuario.formaluno.html',
+        controller: 'UsuarioController',
+      })
+      .when('/usuario/:alunoId', {
+        templateUrl: 'app/usuario/usuario.formaluno.html',
+        controller: 'UsuarioController',
+      })
       .when('/aluno', {
-        templateUrl: 'app/partials/aluno.html',
+        templateUrl: 'app/aluno/aluno.html',
         controller: 'AlunoController',
       })
       .when('/aluno/:alunoId', {
-        templateUrl: 'app/partials/aluno.html',
+        templateUrl: 'app/aluno/aluno.html',
         controller: 'AlunoController',
       })
       .when('/', {

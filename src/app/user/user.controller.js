@@ -3,13 +3,23 @@
 
   angular
     .module('sistemaAluno')
-    .controller('AlunoController', AlunoController);
+    .controller('UserController', UserController);
 
   /** @ngInject */
-  function AlunoController($scope, $routeParams, $location) {
+  function UserController() {
     var vm = this;
+
+    if (!localStorage.getItem('tbalunos')) {
+      localStorage.setItem('tbalunos', '[]')
+    }
+
+    vm.filtro = '';
     vm.aluno = [];
-    vm.alunos = JSON.fromJSON(localStorage.getItem('tbalunos'));
+    vm.alunos = JSON.parse(localStorage.getItem('tbalunos'));
+
+    vm.removeAluno = function() {
+
+    };
 
     if($routeParams.alunoId){
       for (var i = 0; i < vm.alunos.length; i++) {
@@ -35,13 +45,13 @@
             }
           }
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
           $location.path('/#/');
         } else {
           aluno.matricula = 1+vm.alunos.length + '';
           vm.alunos.push(aluno);
 
-          localStorage.setItem('tbalunos', JSON.toJSON(vm.alunos));
+          localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
           $location.path('/#/');
         }
       }

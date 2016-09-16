@@ -9,22 +9,11 @@
   function MainController() {
     var vm = this;
 
-    vm.filtro = '';
-
-    vm.alunos = [];
-
-    if (!localStorage.getItem('tbalunos')) {
-      localStorage.setItem('tbalunos', '[]')
+    vm.login = function(username, password) {
+      console.log(username, password);
+      //login de usuario
+      //Redirecionar para user.html
     }
-
-    vm.buscaAlunos = function() {
-      vm.alunos = JSON.parse(localStorage.getItem('tbalunos'));
-    };
-    vm.buscaAlunos();
-
-    vm.removeAluno = function() {
-
-    };
 
   }
 
