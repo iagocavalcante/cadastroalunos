@@ -2,7 +2,7 @@
 
   <md-toolbar layout="row" class="md-hue-3">
     <div class="md-toolbar-tools">
-      <span>Usuario: {{usuario.nome}}</span>
+      <span>Usuario: {{aluno.nome}}</span>
     </div>
     <button class="md-raised md-primary md-button md-ink-ripple" type="button" ng-click="usuario.logOut()">LogOut</button>
   </md-toolbar>
@@ -67,31 +67,43 @@
         <input aria-invalid="false" id="input_10" class="ng-pristine ng-valid md-input ng-empty ng-touched" ng-model="aluno.contato" ><div class="md-errors-spacer"></div>
       </md-input-container>
     </div>
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+        <label>Emai para login</label>
+        <input type="email" ng-model="aluno.email"/>
+      </md-input-container>
+    </div>
+    <div class="layout-gt-sm-row" layout-gt-sm="row">
+      <md-input-container>
+        <label>Senha</label>
+        <input type="password" ng-model="aluno.password"/>
+      </md-input-container>
+    </div>
 
     <div>
       <input id="inp" type='file'>
       <input hidden="" id="input_11" ng-model="aluno.image" value="" />
       <img id="img" style="width: 100px; height: 100px">
       <script>
-        function elemento(id) { return document.getElementById(id); } // Get el by ID helper function
+      function elemento(id) { return document.getElementById(id); } // Get el by ID helper function
 
-        function readFile() {
-          if (this.files && this.files[0]) {
-            var fileReader = new FileReader();
-            fileReader.onload = function(e) {
-              elemento("img").src = e.target.result;
-              elemento("input_11").value = e.target.result;
-            };
-            fileReader.readAsDataURL(this.files[0]);
-          }
+      function readFile() {
+        if (this.files && this.files[0]) {
+          var fileReader = new FileReader();
+          fileReader.onload = function(e) {
+            elemento("img").src = e.target.result;
+            elemento("input_11").value = e.target.result;
+          };
+          fileReader.readAsDataURL(this.files[0]);
         }
-        elemento("inp").addEventListener("change", readFile, false);
+      }
+      elemento("inp").addEventListener("change", readFile, false);
       </script>
+    </div><br><br>
+    <div layout-gt-sm="row">
+      <md-button class="md-raised md-primary" type="submit">Salvar</md-button>
+      <md-button class="md-raised" ng-href="/#/usuario">Voltar</md-button>
     </div>
-
-    <button class="md-raised md-primary md-button md-ink-ripple" type="submit">Salvar</button>
-    <md-button class="md-raised" ng-href="/#/usuario">Voltar</md-button>
-
   </form>
 
 </div>

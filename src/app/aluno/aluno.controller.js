@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('sistemaAluno')
-    .controller('AlunoController', AlunoController);
+  .module('sistemaAluno')
+  .controller('AlunoController', AlunoController);
 
   /** @ngInject */
   function AlunoController($scope, $routeParams, $location) {
     var vm = this;
     vm.aluno = [];
-    vm.alunos = JSON.parse(localStorage.getItem('tbalunos'));
+    vm.alunos = Backendless.Persistence.of( Alunos ).find().data;
 
     if($routeParams.alunoId){
       for (var i = 0; i < vm.alunos.length; i++) {
@@ -19,7 +19,7 @@
           break;
         }
       }
-      document.getElementById('img').src = $scope.aluno.image;      
+      document.getElementById('img').src = $scope.aluno.image;
     }
 
     vm.salvar = function(aluno) {
@@ -35,12 +35,20 @@
               break;
             }
           }
+          var al = new Alunos(vm.aluno);
+
+          var alunosSalvos = Backendless.Persistence.of( Alunos ).save( al,new Backendless.Async(function(result){
+            console.log(result);
+          }));
 
           localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
           $location.path('/aluno');
         } else {
           aluno.matricula = 1+vm.alunos.length + '';
           vm.alunos.push(aluno);
+          var alunosSalvos = Backendless.Persistence.of( Alunos ).save( al,new Backendless.Async(function(result){
+            console.log(result);
+          }));
 
           localStorage.setItem('tbalunos', JSON.stringify(vm.alunos));
           $location.path('/aluno');
