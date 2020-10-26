@@ -22,7 +22,7 @@
     "gulp-load-plugins": "2.0.2",
     "gulp-size": "3.0.0",
     "gulp-uglify": "3.0.2",
-    "gulp-useref": "4.0.1",
+    "gulp-useref": "5.0.0",
     "gulp-util": "3.0.8",
     "gulp-ng-annotate": "2.1.0",
     "gulp-replace": "1.0.0",
