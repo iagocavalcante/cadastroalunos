@@ -47,7 +47,7 @@
     "browser-sync": "2.26.7",
     "browser-sync-spa": "1.0.3",
     "http-proxy-middleware": "0.20.0",
-    "chalk": "3.0.0",
+    "chalk": "4.1.2",
     "uglify-save-license": "0.4.1"
   },
   "engines": {
