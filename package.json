@@ -2,7 +2,7 @@
   "name": "sistemaAluno",
   "version": "0.0.0",
   "dependencies": {
-    "backendless": "5.7.1"
+    "backendless": "6.7.1"
   },
   "scripts": {
     "test": "gulp test"
