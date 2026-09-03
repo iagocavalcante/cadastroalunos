@@ -18,7 +18,7 @@
     "gulp-filter": "6.0.0",
     "gulp-flatten": "0.4.0",
     "gulp-eslint": "6.0.0",
-    "eslint-plugin-angular": "4.0.1",
+    "eslint-plugin-angular": "4.1.0",
     "gulp-load-plugins": "2.0.2",
     "gulp-size": "3.0.0",
     "gulp-uglify": "3.0.2",
